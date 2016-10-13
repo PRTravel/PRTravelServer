@@ -2,8 +2,38 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-# An example controller showing a sample home page
-GET     /                                   controllers.HomeController.index
+# Login Controller
+GET     /                                    controllers.LoginController.login
+
+# Register Controller
+GET     /register                            controllers.RegisterController.register
+
+# Search Bar
+GET     /search                              controllers.SearchBarController.search
+
+# Profile Controller
+GET     /profile                             controllers.ProfileController.profile
+
+# Wish List Controller
+GET     /getWishList                         controllers.WishListController.getWishList
+
+# Album Controller
+GET     /getAlbums                           controllers.AlbumController.getAlbums
+
+# Picture Controller
+GET     /getPictures                         controllers.PictureController.getPictures
+
+# Notifications Controller
+GET     /getNotifications                    controllers.NotificationsController.getNotifications
+
+# Newsfeed Controller
+GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
+
+# Newsfeed Controller
+GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo
+
+# Calendar Controller
+GET     /getCalendar                         controllers.CalendarController.getCalendar
 
 # Attractions Controller
-GET     /attractions/getAttractions         controllers.AttractionController.getAttractions
+GET     /getAttractions                      controllers.AttractionController.getAttractions
