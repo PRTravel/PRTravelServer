@@ -1,0 +1,5 @@
+New log file opened at Wed Oct 12 22:15:36 BOT 2016 by 2232@Harry-HP
+Sending msg to client play-fork-run-d4be4f1a-3ab7-4c6e-8cbd-ca5e22d272f0: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\Users\Harry\Documents\PRTravelServer\.sbtserver\connections\master.log))
+Sending msg to client play-fork-run-d4be4f1a-3ab7-4c6e-8cbd-ca5e22d272f0: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\Harry\Documents\PRTravelServer\.sbtserver\master.log))
+Sending msg to client play-fork-run-d4be4f1a-3ab7-4c6e-8cbd-ca5e22d272f0: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\Harry\Documents\PRTravelServer\.sbtserver\connections\play-fork-run-d4be4f1a-3ab7-4c6e-8cbd-ca5e22d272f0.log))
+Reading next message from client.
