@@ -15,3 +15,5 @@ libraryDependencies ++= Seq(
 libraryDependencies += filters
 
 fork in run := true
+
+fork in run := true
