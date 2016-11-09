@@ -1,9 +1,0 @@
-New log file opened at Wed Oct 12 22:15:04 BOT 2016 by 2232@Harry-HP
-Sending msg to client play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\Users\Harry\Documents\PRTravelServer\.sbtserver\connections\master.log))
-Sending msg to client play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\Harry\Documents\PRTravelServer\.sbtserver\master.log))
-Sending msg to client play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\Harry\Documents\PRTravelServer\.sbtserver\connections\play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174.log))
-Reading next message from client.
-Client play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174 closed, java.net.SocketException: Connection reset, shutting down
-Stopping client.
-Client play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174 thread exiting.
-Dropping message (0,ReceivedResponse()) to dead client play-fork-run-94b43bf2-749b-4d75-bca7-f9f6353dd174
