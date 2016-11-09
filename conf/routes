@@ -2,8 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+
+
 # Login Controller
-GET     /                                    controllers.LoginController.login
+GET     /                                    controllers.LoginController.login(user: String, password: String)
 
 # Register Controller
 GET     /register                            controllers.RegisterController.register
