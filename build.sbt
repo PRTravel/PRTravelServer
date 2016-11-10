@@ -14,6 +14,8 @@ libraryDependencies ++= Seq(
 
 libraryDependencies += "org.postgresql" % "postgresql" % "9.3-1103-jdbc4"
 
+libraryDependencies += "org.json" % "org.json" % "chargebee-1.0"
+
 libraryDependencies += filters
 
 fork in run := true

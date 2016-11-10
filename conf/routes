@@ -26,7 +26,7 @@ GET     /getAlbums                           controllers.AlbumController.getAlbu
 GET     /getPictures                         controllers.PictureController.getPictures
 
 # Notifications Controller
-GET     /getNotifications                    controllers.NotificationsController.getNotifications
+GET     /getNotifications/                   controllers.NotificationsController.getNotifications(userID: Integer)
 
 # Newsfeed Controller
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
