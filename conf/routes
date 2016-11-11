@@ -7,6 +7,9 @@
 # Login Controller
 GET     /                                    controllers.LoginController.login(user: String, password: String)
 
+# Image Controller 
+GET     /images/*file                        controllers.Assets.at(path = "/public/images/", file)
+
 # Register Controller
 GET     /register                            controllers.RegisterController.register
 
@@ -26,7 +29,7 @@ GET     /getAlbums                           controllers.AlbumController.getAlbu
 GET     /getPictures                         controllers.PictureController.getPictures
 
 # Notifications Controller
-GET     /getNotifications                    controllers.NotificationsController.getNotifications
+GET     /getNotifications/                   controllers.NotificationsController.getNotifications(userID: Integer)
 
 # Newsfeed Controller
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
@@ -39,3 +42,6 @@ GET     /getCalendar                         controllers.CalendarController.getC
 
 # Attractions Controller
 GET     /getAttractions                      controllers.AttractionController.getAttractions
+
+# Attractions Controller
+GET     /getAttractionsDetail                controllers.AttractionController.getAttractionsDetail(attractionID: Integer)
