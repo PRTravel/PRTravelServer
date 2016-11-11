@@ -35,7 +35,7 @@ GET     /getNotifications/                   controllers.NotificationsController
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
 
 # Newsfeed Controller
-GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo
+GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo(user: Integer)
 
 # Calendar Controller
 GET     /getCalendar                         controllers.CalendarController.getCalendar
