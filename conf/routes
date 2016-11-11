@@ -7,6 +7,9 @@
 # Login Controller
 GET     /                                    controllers.LoginController.login(user: String, password: String)
 
+# Image Controller 
+GET     /images/*file                        controllers.Assets.at(path = "/public/images/", file)
+
 # Register Controller
 GET     /register                            controllers.RegisterController.register
 
