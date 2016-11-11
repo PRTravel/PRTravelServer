@@ -42,3 +42,6 @@ GET     /getCalendar                         controllers.CalendarController.getC
 
 # Attractions Controller
 GET     /getAttractions                      controllers.AttractionController.getAttractions
+
+# Attractions Controller
+GET     /getAttractionsDetail                controllers.AttractionController.getAttractionsDetail(attractionID: Integer)
