@@ -10,7 +10,8 @@ public class MakeConnection{
 
     public MakeConnection() throws SQLException{
         url = "jdbc:postgresql://localhost:5432/postgres";
-        conn = DriverManager.getConnection(url,"postgres","geraldo123");
+        conn = DriverManager.getConnection(url,"abdielvega","abdiel123");
+>>>>>>> refs/remotes/origin/master
     }
 
     public Connection connect() throws SQLException{

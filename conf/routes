@@ -23,7 +23,7 @@ GET     /profile                             controllers.ProfileController.profi
 GET     /getWishList                         controllers.WishListController.getWishList
 
 # Album Controller
-GET     /getAlbums                           controllers.AlbumController.getAlbums
+GET     /getAlbums                           controllers.AlbumController.getAlbums(userID: Integer)
 
 # Picture Controller
 GET     /getPictures                         controllers.PictureController.getPictures
