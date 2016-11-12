@@ -12,8 +12,21 @@ public class Calendar{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT title, start, allday FROM events");
+        stmt = conn.prepareStatement("SELECT title, start, end1, allday FROM events");
         
+
+        rs = stmt.executeQuery();
+
+        return rs;
+    }
+    
+    public static ResultSet getProfileCalendar(Integer userID, Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT uid, title, start, end1, allday FROM events WHERE  uid = ?");
+        stmt.setInt(1, userID);
 
         rs = stmt.executeQuery();
 
