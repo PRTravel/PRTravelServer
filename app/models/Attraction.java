@@ -27,7 +27,7 @@ public class Attraction{
     public static JSONObject getAttractionsDetail(Integer attractionID, Connection conn) throws Exception{
 
         PreparedStatement stmt;
-        ResultSet rs, rs1;
+        ResultSet rs, rs1, rs2 ;
 
         stmt = conn.prepareStatement("SELECT aname, alocation, adescription, aimageurl FROM attractions WHERE aid = ?");
         stmt.setInt(1, attractionID);
@@ -42,8 +42,18 @@ public class Attraction{
         rs1 = stmt.executeQuery();
 
         JSONArray services = ToJSON.convertToJSONArray(rs1);
-
+        
+        stmt = conn.prepareStatement("SELECT ufirst, ulast, imageurl, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE aid = ? ORDER BY cdate DESC");
+        stmt.setInt(1, attractionID);
+        
+        rs2 = stmt.executeQuery();
+        
+        JSONArray attractionComments = ToJSON.convertToJSONArray(rs2);
+        
+        System.out.println(attractionComments.toString());
+        
         attraction.put("services", services);
+        attraction.put("comments", attractionComments);
 
         return attraction;
     }
