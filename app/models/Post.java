@@ -12,7 +12,7 @@ public class Post{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT * FROM posts as p, users as u WHERE u.uid = ? AND p.uid = u.uid");
+        stmt = conn.prepareStatement("SELECT * FROM posts as p, users as u WHERE u.uid = ? AND p.uid = u.uid ORDER BY to_date(pdate,'YYYY MM DD') desc");
         stmt.setInt(1, user); 
 
         rs = stmt.executeQuery();
