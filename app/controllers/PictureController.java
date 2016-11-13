@@ -4,6 +4,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import org.json.JSONArray;
 import utilities.ToJSON;
 import utilities.MakeConnection;
 import models.Picture;
@@ -16,13 +17,13 @@ public class PictureController extends Controller {
             MakeConnection db = new MakeConnection();
             Connection activeConnection = db.connect();
 
-            ResultSet picture = Picture.getPictureOfAlbum(albumID, activeConnection);
+            JSONArray picture = Picture.getPictureOfAlbum(albumID, activeConnection);
 
             db.close();
 
-            String s = ToJSON.convertToJSONArray(picture).toString();
+            String s = picture.toString();
             System.out.println(s);
-            if(!s.equals("{}")){
+            if(!s.equals("[]")){
                 return ok(s);
             }
 
