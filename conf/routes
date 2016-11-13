@@ -40,6 +40,9 @@ GET     /getNewsfeedInfo                     controllers.NewsfeedController.getN
 # Calendar Controller
 GET     /getCalendar                         controllers.CalendarController.getCalendar
 
+GET     /getProfileCalendar                  controllers.CalendarController.getProfileCalendar(userID: Integer)
+
+
 # Attractions Controller
 GET     /getAttractions                      controllers.AttractionController.getAttractions
 
