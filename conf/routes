@@ -26,7 +26,7 @@ GET     /getWishList                         controllers.WishListController.getW
 GET     /getAlbums                           controllers.AlbumController.getAlbums(userID: Integer)
 
 # Picture Controller
-GET     /getPictures                         controllers.PictureController.getPictures
+GET     /getPictures                         controllers.PictureController.getPictures(albumID: Integer)
 
 # Notifications Controller
 GET     /getNotifications/                   controllers.NotificationsController.getNotifications(userID: Integer)
