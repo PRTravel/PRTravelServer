@@ -17,7 +17,6 @@ public class Attraction{
         ResultSet rs;
 
         stmt = conn.prepareStatement("SELECT * FROM attractions");
-        
 
         rs = stmt.executeQuery();
 
@@ -43,18 +42,29 @@ public class Attraction{
 
         JSONArray services = ToJSON.convertToJSONArray(rs1);
         
-        stmt = conn.prepareStatement("SELECT ufirst, ulast, imageurl, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE aid = ? ORDER BY cdate DESC");
+        stmt = conn.prepareStatement("SELECT ufirst, ulast, imageurl, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE aid = ? ORDER BY to_date(cdate,'YYYY MM DD') DESC");
         stmt.setInt(1, attractionID);
         
         rs2 = stmt.executeQuery();
         
         JSONArray attractionComments = ToJSON.convertToJSONArray(rs2);
         
-        System.out.println(attractionComments.toString());
-        
         attraction.put("services", services);
         attraction.put("comments", attractionComments);
 
         return attraction;
+    }
+    
+    public static ResultSet getWishList(Integer userID, Connection conn) throws Exception{
+        
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT aname, alocation, aimageurl FROM users NATURAL INNER JOIN wishlist NATURAL INNER JOIN attractions WHERE uid = ?");
+        stmt.setInt(1, userID);
+        
+        rs = stmt.executeQuery();
+        
+        return rs;
     }
 }

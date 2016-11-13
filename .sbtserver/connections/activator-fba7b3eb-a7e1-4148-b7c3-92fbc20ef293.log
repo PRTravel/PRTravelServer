@@ -1,8 +1,8 @@
-New log file opened at Fri Nov 11 20:40:36 BOT 2016 by 10264@Geraldo-PC
-Sending msg to client activator-397ee3ad-076f-4148-956b-595ca38a3508: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\Users\Geraldo Lopez\Documents\GitHub\PRTravelServer\.sbtserver\connections\master.log))
-Sending msg to client activator-397ee3ad-076f-4148-956b-595ca38a3508: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\Geraldo Lopez\Documents\GitHub\PRTravelServer\.sbtserver\connections\activator-397ee3ad-076f-4148-956b-595ca38a3508.log))
-Sending msg to client activator-397ee3ad-076f-4148-956b-595ca38a3508: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\Geraldo Lopez\Documents\GitHub\PRTravelServer\.sbtserver\master.log))
-Dropping message DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\Geraldo Lopez\Documents\GitHub\PRTravelServer\.sbtserver\master.log)) because client activator-397ee3ad-076f-4148-956b-595ca38a3508 of an exception serializing and sending: java.net.SocketException: Software caused connection abort: socket write error
+New log file opened at Sun Nov 13 00:06:30 BOT 2016 by 9408@Geraldo-PC
+Sending msg to client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293: DetachedLogEvent(LogMessage(debug,sbt server socket logs are in: C:\Users\Geraldo Lopez\Desktop\PRTravelServer\.sbtserver\connections\master.log))
+Sending msg to client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293: DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\Geraldo Lopez\Desktop\PRTravelServer\.sbtserver\connections\activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293.log))
+Sending msg to client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293: DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\Geraldo Lopez\Desktop\PRTravelServer\.sbtserver\master.log))
+Dropping message DetachedLogEvent(LogMessage(debug,sbt general server logs are in: C:\Users\Geraldo Lopez\Desktop\PRTravelServer\.sbtserver\master.log)) because client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293 of an exception serializing and sending: java.net.SocketException: Software caused connection abort: socket write error
 stack trace sending message was 
 java.net.SocketException: Software caused connection abort: socket write error
 	at java.net.SocketOutputStream.socketWrite0(Native Method)
@@ -19,7 +19,7 @@ java.net.SocketException: Software caused connection abort: socket write error
 	at sbt.server.SbtClientHandler.wrappedSend(SbtClientHandler.scala:113)
 	at sbt.server.SbtClientHandler.send(SbtClientHandler.scala:128)
 	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:92)
-Dropping message DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\Geraldo Lopez\Documents\GitHub\PRTravelServer\.sbtserver\connections\activator-397ee3ad-076f-4148-956b-595ca38a3508.log)) because client activator-397ee3ad-076f-4148-956b-595ca38a3508 of an exception serializing and sending: java.net.SocketException: Software caused connection abort: socket write error
+Dropping message DetachedLogEvent(LogMessage(debug,sbt client logs are in: C:\Users\Geraldo Lopez\Desktop\PRTravelServer\.sbtserver\connections\activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293.log)) because client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293 of an exception serializing and sending: java.net.SocketException: Software caused connection abort: socket write error
 stack trace sending message was 
 java.net.SocketException: Software caused connection abort: socket write error
 	at java.net.SocketOutputStream.socketWrite0(Native Method)
@@ -37,6 +37,6 @@ java.net.SocketException: Software caused connection abort: socket write error
 	at sbt.server.SbtClientHandler.send(SbtClientHandler.scala:128)
 	at sbt.server.SbtClientHandler$clientThread$.run(SbtClientHandler.scala:42)
 Reading next message from client.
-Client activator-397ee3ad-076f-4148-956b-595ca38a3508 closed, java.net.SocketException: socket is closed, shutting down
-Dropping message (0,ReceivedResponse()) to dead client activator-397ee3ad-076f-4148-956b-595ca38a3508
-Client activator-397ee3ad-076f-4148-956b-595ca38a3508 thread exiting.
+Client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293 closed, java.net.SocketException: socket is closed, shutting down
+Dropping message (0,ReceivedResponse()) to dead client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293
+Client activator-fba7b3eb-a7e1-4148-b7c3-92fbc20ef293 thread exiting.
