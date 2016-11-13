@@ -16,7 +16,7 @@ public class Post{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT * FROM posts as p, users as u WHERE u.uid = ? AND p.uid = u.uid ORDER BY to_date(pdate,'YYYY MM DD') desc");
+        stmt = conn.prepareStatement("SELECT PAUTHOR.ufirst, PAUTHOR.ulast, PAUTHOR.imageurl, p.ptext, p.ptitle, p.pdate, p.plikes, p.pcomments_count FROM posts as p, users as u, users as PAUTHOR WHERE u.uid = ? AND p.uid = u.uid AND p.pauthor = PAUTHOR.uid ORDER BY to_date(pdate,'YYYY MM DD') desc");
         stmt.setInt(1, user); 
 
         rs = stmt.executeQuery();
