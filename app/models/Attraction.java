@@ -43,7 +43,7 @@ public class Attraction{
 
         JSONArray services = ToJSON.convertToJSONArray(rs1);
         
-        stmt = conn.prepareStatement("SELECT ufirst, ulast, imageurl, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE aid = ? ORDER BY cdate DESC");
+        stmt = conn.prepareStatement("SELECT ufirst, ulast, imageurl, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE aid = ? ORDER BY to_date(cdate,'YYYY MM DD') DESC");
         stmt.setInt(1, attractionID);
         
         rs2 = stmt.executeQuery();
