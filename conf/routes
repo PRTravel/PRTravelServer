@@ -48,3 +48,6 @@ GET     /getAttractions                      controllers.AttractionController.ge
 
 # Attractions Controller
 GET     /getAttractionsDetail                controllers.AttractionController.getAttractionsDetail(attractionID: Integer)
+
+# Admin Controller
+GET     /getAdmin                           controllers.AdminController.getAdmin
