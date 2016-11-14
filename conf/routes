@@ -20,7 +20,7 @@ GET     /search                              controllers.SearchBarController.sea
 GET     /profile                             controllers.ProfileController.profile
 
 # Wish List Controller
-GET     /getWishList                         controllers.WishListController.getWishList
+GET     /getWishList                         controllers.WishListController.getWishList(userID: Integer)
 
 # Album Controller
 GET     /getAlbums                           controllers.AlbumController.getAlbums(userID: Integer)
@@ -48,3 +48,6 @@ GET     /getAttractions                      controllers.AttractionController.ge
 
 # Attractions Controller
 GET     /getAttractionsDetail                controllers.AttractionController.getAttractionsDetail(attractionID: Integer)
+
+# Admin Controller
+GET     /getAdmin                           controllers.AdminController.getAdmin
