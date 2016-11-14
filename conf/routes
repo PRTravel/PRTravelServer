@@ -38,7 +38,7 @@ GET     /getProfileInfo                      controllers.NewsfeedController.getP
 GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo(user: Integer)
 
 # Calendar Controller
-GET     /getCalendar                         controllers.CalendarController.getCalendar
+GET     /getCalendar                         controllers.CalendarController.getCalendar(userID: Integer)
 
 GET     /getProfileCalendar                  controllers.CalendarController.getProfileCalendar(userID: Integer)
 
