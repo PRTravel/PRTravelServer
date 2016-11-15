@@ -12,13 +12,13 @@ public class CalendarController extends Controller {
     
     
 
-    public Result getCalendar() {
+    public Result getCalendar(Integer userID) {
 
         try {
             MakeConnection db = new MakeConnection();
             Connection activeConnection = db.connect();
 
-            ResultSet events = Calendar.getCalendar(activeConnection);
+            ResultSet events = Calendar.getCalendar(userID, activeConnection);
 
             db.close();
 
