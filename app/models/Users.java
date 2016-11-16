@@ -24,6 +24,18 @@ public class Users{
         return rs;
     }
     
+    public static ResultSet getAllUsers(Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT ufirst, ulast FROM users");
+
+        rs = stmt.executeQuery();
+
+        return rs;
+    }
+    
     public static JSONArray getAdminInfo(Connection conn) throws Exception{
 
         PreparedStatement stmt;
