@@ -24,6 +24,20 @@ public class Users{
         return rs;
     }
     
+    public static ResultSet getAllUsers(String find, Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT imageurl, ufirst, ulast FROM users WHERE ufirst LIKE ? OR ulast LIKE ? OR uusername LIKE ? OR uemail LIKE ?");
+        stmt.setString(1, "%" + find + "%");
+        stmt.setString(2, "%" + find + "%");
+        stmt.setString(3, "%" + find + "%");
+        stmt.setString(4, "%" + find + "%");
+        rs = stmt.executeQuery();
+        return rs;
+    }
+    
     public static JSONArray getAdminInfo(Connection conn) throws Exception{
 
         PreparedStatement stmt;

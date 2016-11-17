@@ -14,7 +14,7 @@ GET     /images/*file                        controllers.Assets.at(path = "/publ
 GET     /register                            controllers.RegisterController.register
 
 # Search Bar
-GET     /search                              controllers.SearchBarController.search
+GET     /search                              controllers.SearchBarController.search(find: String)
 
 # Profile Controller
 GET     /profile                             controllers.ProfileController.profile
@@ -29,7 +29,7 @@ GET     /getAlbums                           controllers.AlbumController.getAlbu
 GET     /getPictures                         controllers.PictureController.getPictures(albumID: Integer)
 
 # Notifications Controller
-GET     /getNotifications/                   controllers.NotificationsController.getNotifications(userID: Integer)
+GET     /getNotifications                   controllers.NotificationsController.getNotifications(userID: Integer)
 
 # Newsfeed Controller
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo

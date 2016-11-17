@@ -21,7 +21,6 @@ public class AdminController extends Controller {
             db.close();
 
             String s = admin.toString();
-            System.out.println(s);
             if(!s.equals("[]")) {
                 return ok(s);
             } 

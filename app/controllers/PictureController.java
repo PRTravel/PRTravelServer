@@ -22,7 +22,6 @@ public class PictureController extends Controller {
             db.close();
 
             String s = picture.toString();
-            System.out.println(s);
             if(!s.equals("[]")){
                 return ok(s);
             }
