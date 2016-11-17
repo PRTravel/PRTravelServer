@@ -10,20 +10,20 @@ import models.Users;
 
 public class SearchBarController extends Controller {
 
-    public Result search(){
+    public Result search(String find){
 
         
         try {
             MakeConnection db = new MakeConnection();
             Connection activeConnection = db.connect();
 
-            ResultSet allUsers = Users.getAllUsers(activeConnection);
+            ResultSet allUsers = Users.getAllUsers(find, activeConnection);
 
             db.close();
 
             String s = ToJSON.convertToJSONArray(allUsers).toString();
-
-            if(!s.equals("{}")){
+            System.out.println(s);
+            if(!s.equals("[]")){
                 return ok(s);
             }
 

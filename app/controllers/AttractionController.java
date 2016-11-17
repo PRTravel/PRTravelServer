@@ -45,7 +45,6 @@ public class AttractionController extends Controller {
             db.close();
 
             String s = attraction.toString();
-            System.out.println(s);
             if(!s.equals("{}")) {
                 return ok(s);
             }

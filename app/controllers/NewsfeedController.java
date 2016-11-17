@@ -28,7 +28,6 @@ public class NewsfeedController extends Controller {
 
             String s = post.toString();
 
-            System.out.println(s);
             if(!s.equals("[]")){
                 return ok(s);
             }

@@ -21,8 +21,6 @@ public class AlbumController extends Controller {
             db.close();
 
             String s = ToJSON.convertToJSONArray(album).toString();
-            System.out.println("Hey");
-            System.out.println(s);
             if(!s.equals("{}")){
                 return ok(s);
             }
