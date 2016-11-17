@@ -2,37 +2,34 @@ package controllers;
 
 import play.mvc.Controller;
 import play.mvc.Result;
-import java.sql.Connection;
 import java.sql.ResultSet;
-import org.json.JSONArray;
+import java.sql.Connection;
 import utilities.ToJSON;
 import utilities.MakeConnection;
-import models.Picture;
+import models.Users;
+import org.json.JSONArray;
 
-public class PictureController extends Controller {
+public class AdminController extends Controller {
 
-    public Result getPictures(int albumID) {
-
-         try {
+    public Result getAdmin() {
+        try {
             MakeConnection db = new MakeConnection();
             Connection activeConnection = db.connect();
-
-            JSONArray picture = Picture.getPictureOfAlbum(albumID, activeConnection);
-
+            
+            JSONArray admin = Users.getAdminInfo(activeConnection);
+            
             db.close();
 
-            String s = picture.toString();
-            if(!s.equals("[]")){
+            String s = admin.toString();
+            if(!s.equals("[]")) {
                 return ok(s);
-            }
+            } 
 
         } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
-       
         return notFound("Failed!");
-
 
     }
 
