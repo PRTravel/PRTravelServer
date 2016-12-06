@@ -57,13 +57,13 @@ public class CalendarController extends Controller {
         }
         return notFound("Failed!");
     }
-    public Result addProfileCalendar(Integer userID, String title, String start, String end) {
+    public Result addProfileCalendar(Integer userID, String title, String start, String end1) {
 
         try {
             MakeConnection db = new MakeConnection();
             Connection activeConnection = db.connect();
 
-           Calendar.addProfileCalendar(userID, title, start, end, activeConnection);
+           Calendar.addProfileCalendar(userID, title, start, end1, activeConnection);
 
             db.close();
 

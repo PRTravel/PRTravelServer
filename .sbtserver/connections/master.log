@@ -335,3 +335,75 @@ Taking next connection to: 49503
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
 Taking next connection to: 49503
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 49503
+Checking to see if clients are empty...
+We have 1 non-daemon clients, continuing serving connections.
+Taking next connection to: 49503
+New client attempting to connect on port: 65439-49503
+  Address = /192.168.0.17:49503
+Handshake exception on socket: 65439
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 49503
+New client attempting to connect on port: 65440-49503
+  Address = /192.168.0.17:49503
+This client on port 65440 has uuid 96fe5c8f-5508-4d2b-98ac-15d7aff34bed configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-147ba1c1-4977-4f7c-9568-23a82f653226, play-fork-run-96fe5c8f-5508-4d2b-98ac-15d7aff34bed
+Taking next connection to: 49503
+New client attempting to connect on port: 65521-49503
+  Address = /192.168.0.17:49503
+Handshake exception on socket: 65521
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 49503
+New client attempting to connect on port: 65522-49503
+  Address = /192.168.0.17:49503
+This client on port 65522 has uuid 73c42127-c40b-4b86-9201-aeeebb75cf3c configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-147ba1c1-4977-4f7c-9568-23a82f653226, play-fork-run-73c42127-c40b-4b86-9201-aeeebb75cf3c
+Taking next connection to: 49503
+New client attempting to connect on port: 49191-49503
+  Address = /192.168.0.17:49503
+Handshake exception on socket: 49191
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 49503
+New client attempting to connect on port: 49194-49503
+  Address = /192.168.0.17:49503
+This client on port 49194 has uuid 191f09ce-0735-4335-9224-b3f164b50cb1 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: activator-147ba1c1-4977-4f7c-9568-23a82f653226, play-fork-run-191f09ce-0735-4335-9224-b3f164b50cb1
+Taking next connection to: 49503
+New client attempting to connect on port: 49409-49503
+  Address = /192.168.0.17:49503
+Handshake exception on socket: 49409
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.io.EOFException
+	at java.io.DataInputStream.readInt(DataInputStream.java:392)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more

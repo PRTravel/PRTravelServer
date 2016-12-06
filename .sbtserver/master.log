@@ -2522,3 +2522,235 @@ Running task... Cancel: sbt.server.ServerTaskCancellation@739b4, check cycles: f
 Total time: 0 s, completed Dec 6, 2016 3:21:12 AM
 > server-post-command-cleanup
 > server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@df77c7, check cycles: false
+Total time: 2 s, completed Dec 6, 2016 3:29:33 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/C:/Users/Geraldo%20Lopez/Desktop/PRTravelServer/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@4898ef, check cycles: false
+Total time: 3 s, completed Dec 6, 2016 3:29:54 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@1b39f16, check cycles: false
+Total time: 0 s, completed Dec 6, 2016 3:30:08 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/C:/Users/Geraldo%20Lopez/Desktop/PRTravelServer/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@145c316, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\conf\application.conf,C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes\application.conf)
+	(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\conf\logback.xml,C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes\logback.xml)
+	(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\conf\routes,C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes\routes)
+Total time: 12 s, completed Dec 6, 2016 3:30:23 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@a8c207, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\utilities\MakeConnection.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\utilities\MakeConnection.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\utilities\MakeConnection.java)
+
+Read from stdout: Compiling 1 Java source to C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes...
+Compiling 1 Java source to C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@65d5f0 directly...
+Java compilation took 0.929006648 s
+Java analysis took 0.13420754 s
+Java compile + analysis took 1.192804837 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 4 s, completed Dec 6, 2016 3:31:19 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> jobStop 2
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@1188a5b, check cycles: false
+Total time: 0 s, completed Dec 6, 2016 3:31:20 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@703c6b, check cycles: false
+Total time: 1 s, completed Dec 6, 2016 3:31:21 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/C:/Users/Geraldo%20Lopez/Desktop/PRTravelServer/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@18f7bc0, check cycles: false
+Total time: 2 s, completed Dec 6, 2016 3:31:33 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@833ee6, check cycles: false
+Total time: 0 s, completed Dec 6, 2016 3:31:39 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@108456d, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\controllers\CalendarController.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\controllers\CalendarController.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\controllers\CalendarController.java)
+
+Read from stdout: Compiling 1 Java source to C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes...
+Compiling 1 Java source to C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@18635a9 directly...
+Java compilation took 0.964207422 s
+Java analysis took 0.915152896 s
+Java compile + analysis took 2.054387431 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 5 s, completed Dec 6, 2016 3:31:50 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> jobStop 3
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@d3c091, check cycles: false
+Total time: 0 s, completed Dec 6, 2016 3:31:51 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@a9495f, check cycles: false
+Total time: 2 s, completed Dec 6, 2016 3:31:53 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/C:/Users/Geraldo%20Lopez/Desktop/PRTravelServer/}root/*:playForkConfig
+Evaluating tasks: *:playForkConfig
+Running task... Cancel: sbt.server.ServerTaskCancellation@c3a3f9, check cycles: false
+Total time: 2 s, completed Dec 6, 2016 3:32:07 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> root/playForkNotifyStart http://localhost:9000
+Evaluating tasks: *:playForkNotifyStart
+Running task... Cancel: sbt.server.ServerTaskCancellation@d0b56, check cycles: false
+Total time: 0 s, completed Dec 6, 2016 3:32:17 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/C:/Users/Geraldo%20Lopez/Desktop/PRTravelServer/}root/*:playForkReload
+Evaluating tasks: *:playForkReload
+Running task... Cancel: sbt.server.ServerTaskCancellation@1f5035, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\conf\application.conf,C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes\application.conf)
+	(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\conf\logback.xml,C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes\logback.xml)
+	(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\conf\routes,C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes\routes)
+Total time: 11 s, completed Dec 6, 2016 3:32:31 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> jobStop 4
+Evaluating tasks: *:jobStop
+Running task... Cancel: sbt.server.ServerTaskCancellation@7b45fe, check cycles: false
+Total time: 0 s, completed Dec 6, 2016 3:34:09 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> compile
+Evaluating tasks: compile:compile
+Running task... Cancel: sbt.server.ServerTaskCancellation@d30275, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\utilities\MakeConnection.java)
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\utilities\MakeConnection.java)
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set(C:\Users\Geraldo Lopez\Desktop\PRTravelServer\app\utilities\MakeConnection.java)
+
+Read from stdout: Compiling 1 Java source to C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes...
+Compiling 1 Java source to C:\Users\Geraldo Lopez\Desktop\PRTravelServer\target\scala-2.11\classes...
+Attempting to call com.sun.tools.javac.api.JavacTool@1571000 directly...
+Java compilation took 0.372326682 s
+Java analysis took 0.091184485 s
+Java compile + analysis took 0.508349155 s
+New invalidations:
+	Set()
+Initial set of included nodes: Set()
+Previously invalidated, but (transitively) depend on new invalidations:
+	Set()
+All newly invalidated sources after taking into account (previously) recompiled sources:Set()
+Total time: 2 s, completed Dec 6, 2016 3:34:27 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRun
+Evaluating tasks: compile:backgroundRun
+Running task... Cancel: sbt.server.ServerTaskCancellation@18b2faf, check cycles: false
+Total time: 1 s, completed Dec 6, 2016 3:34:29 AM
+> server-post-command-cleanup
+> server-handle-next-server-request
