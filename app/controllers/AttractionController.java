@@ -55,4 +55,25 @@ public class AttractionController extends Controller {
         }
         return notFound("Failed!");
     }
+    
+    public Result addAttractionComment(Integer userID, String ctext, Integer aid, String cdate){
+        try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+
+            JSONObject attraction = Attraction.addAttractionComment(userID, ctext, aid, cdate, activeConnection);
+
+            db.close();
+
+            String s = attraction.toString();
+            if(!s.equals("{}")) {
+                return ok(s);
+            }
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return notFound("Failed!");
+    }
 }

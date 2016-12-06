@@ -17,7 +17,9 @@ GET     /register                            controllers.RegisterController.regi
 GET     /search                              controllers.SearchBarController.search(find: String)
 
 # Profile Controller
-GET     /profile                             controllers.ProfileController.profile
+GET     /isFollowed                          controllers.ProfileController.isFollowed(userID: Integer, friendID: Integer)
+
+POST     /followOrUnfollow                   controllers.ProfileController.followOrUnfollow(userID: Integer, friendID: Integer, follow: String, ntext: String)
 
 # Wish List Controller
 GET     /getWishList                         controllers.WishListController.getWishList(userID: Integer)
@@ -29,7 +31,7 @@ GET     /getAlbums                           controllers.AlbumController.getAlbu
 GET     /getPictures                         controllers.PictureController.getPictures(albumID: Integer)
 
 # Notifications Controller
-GET     /getNotifications                   controllers.NotificationsController.getNotifications(userID: Integer)
+GET     /getNotifications                    controllers.NotificationsController.getNotifications(userID: Integer)
 
 # Newsfeed Controller
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
@@ -42,12 +44,12 @@ GET     /getCalendar                         controllers.CalendarController.getC
 
 GET     /getProfileCalendar                  controllers.CalendarController.getProfileCalendar(userID: Integer)
 
-
 # Attractions Controller
 GET     /getAttractions                      controllers.AttractionController.getAttractions
 
-# Attractions Controller
 GET     /getAttractionsDetail                controllers.AttractionController.getAttractionsDetail(attractionID: Integer)
+
+POST    /addAttractionComment                controllers.AttractionController.addAttractionComment(userID: Integer, ctext: String, aid: Integer, cdate: String)
 
 # Admin Controller
 GET     /getAdmin                           controllers.AdminController.getAdmin

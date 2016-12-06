@@ -67,4 +67,20 @@ public class Attraction{
         
         return rs;
     }
+    
+    public static JSONObject addAttractionComment(Integer userID, String ctext, Integer aid, String cdate, Connection conn) throws Exception{
+        
+        PreparedStatement stmt;
+
+        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, ctime, pid, aid, picid) VALUES (?, ?, ?, null, null, ?, null)");
+        stmt.setInt(1, userID);
+        stmt.setString(2, ctext);
+        stmt.setString(3, cdate);
+        stmt.setInt(4, aid);
+        
+        stmt.executeUpdate();
+        
+        return getAttractionsDetail(aid, conn);
+    }
+    
 }
