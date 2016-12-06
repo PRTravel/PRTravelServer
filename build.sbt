@@ -18,6 +18,10 @@ libraryDependencies += "org.json" % "org.json" % "chargebee-1.0"
 
 libraryDependencies += filters
 
+libraryDependencies ++= Seq(
+   "com.sendgrid" % "sendgrid-java" % "3.0.0"
+   )
+
 fork in run := true
 
 fork in run := true
