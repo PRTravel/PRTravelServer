@@ -11,7 +11,7 @@ GET     /                                    controllers.LoginController.login(u
 GET     /images/*file                        controllers.Assets.at(path = "/public/images/", file)
 
 # Register Controller
-GET     /register                            controllers.RegisterController.register
+POST     /register                            controllers.RegisterController.register(firstname: String, lastname: String, username: String, password: String)
 
 # Search Bar
 GET     /search                              controllers.SearchBarController.search(find: String)
@@ -51,3 +51,9 @@ GET     /getAttractionsDetail                controllers.AttractionController.ge
 
 # Admin Controller
 GET     /getAdmin                           controllers.AdminController.getAdmin
+
+# Change Password
+POST   /changepassword                      controllers.SettingController.changePassword(userID: Integer, password: String)
+
+#Change Email
+POST    /changeEmail                        controllers.SettingController.changeEmail(userID: Integer, email: String)
