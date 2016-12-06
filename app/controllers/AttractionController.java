@@ -76,4 +76,44 @@ public class AttractionController extends Controller {
         }
         return notFound("Failed!");
     }
+    
+    public Result addToWishList(Integer userID, Integer aid){
+        try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+
+            Attraction.addToWishList(userID, aid, activeConnection);
+
+            db.close();
+
+            return ok();
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return notFound("Failed!");
+    }
+    
+    public Result removeFromWishlist(Integer userID, Integer aid){
+        try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+
+            ResultSet result = Attraction.removeFromWishlist(userID, aid, activeConnection);
+
+            db.close();
+            
+            String s = ToJSON.convertToJSONArray(result).toString();
+            if(!s.equals("[]")){
+                return ok(s);
+            }
+            
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return notFound("Failed!");
+    }
 }

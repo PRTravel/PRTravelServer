@@ -51,6 +51,10 @@ GET     /getAttractionsDetail                controllers.AttractionController.ge
 
 POST    /addAttractionComment                controllers.AttractionController.addAttractionComment(userID: Integer, ctext: String, aid: Integer, cdate: String)
 
+POST    /addToWishList                       controllers.AttractionController.addToWishList(userID: Integer, aid: Integer)
+
+POST    /removeFromWishlist                  controllers.AttractionController.removeFromWishlist(userID: Integer, aid: Integer)
+
 # Admin Controller
 GET     /getAdmin                           controllers.AdminController.getAdmin
 

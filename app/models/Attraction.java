@@ -60,7 +60,7 @@ public class Attraction{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT aname, alocation, aimageurl FROM users NATURAL INNER JOIN wishlist NATURAL INNER JOIN attractions WHERE uid = ?");
+        stmt = conn.prepareStatement("SELECT aid, aname, alocation, aimageurl FROM users NATURAL INNER JOIN wishlist NATURAL INNER JOIN attractions WHERE uid = ?");
         stmt.setInt(1, userID);
         
         rs = stmt.executeQuery();
@@ -82,5 +82,30 @@ public class Attraction{
         
         return getAttractionsDetail(aid, conn);
     }
+    
+    public static void addToWishList(Integer userID, Integer aid, Connection conn) throws Exception{
+        
+        PreparedStatement stmt;
+
+        stmt = conn.prepareStatement("INSERT INTO wishlist (uid, aid) VALUES (?, ?)");
+        stmt.setInt(1, userID);
+        stmt.setInt(2, aid);
+        
+        stmt.executeUpdate();
+    }
+    
+    public static ResultSet removeFromWishlist(Integer userID, Integer aid, Connection conn) throws Exception{
+        
+        PreparedStatement stmt;
+
+        stmt = conn.prepareStatement("DELETE FROM wishlist WHERE uid = ? AND aid = ?");
+        stmt.setInt(1, userID);
+        stmt.setInt(2, aid);
+        
+        stmt.executeUpdate();
+        
+        return getWishList(userID, conn);
+    }
+    
     
 }
