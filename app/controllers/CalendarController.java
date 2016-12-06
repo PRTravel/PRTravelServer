@@ -57,6 +57,25 @@ public class CalendarController extends Controller {
         }
         return notFound("Failed!");
     }
+    public Result addProfileCalendar(Integer userID, String title, String start, String end) {
+
+        try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+
+           Calendar.addProfileCalendar(userID, title, start, end, activeConnection);
+
+            db.close();
+
+        return ok("Success");
+           
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return notFound("Failed!");
+    }
 
 
 }
