@@ -33,6 +33,31 @@ public class NewsfeedController extends Controller {
             }
 
         } catch (Exception e) {
+            System.err.println("EXCEPTION HERE! ");
+            System.err.println(e.getMessage());
+        }
+       
+        return notFound("Failed!");
+
+    }
+    
+    public Result postIt(int userID, String ptext, String pdate) {
+
+         try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+
+            JSONArray posts = Post.postIt(userID, ptext, pdate, activeConnection);
+
+            db.close();
+
+            String s = posts.toString();
+
+            if(!s.equals("[]")){
+                return ok(s);
+            }
+
+        } catch (Exception e) {
             System.err.println("Got an exception! ");
             System.err.println(e.getMessage());
         }
@@ -40,6 +65,30 @@ public class NewsfeedController extends Controller {
         return notFound("Failed!");
 
     }
+    
+    public Result addPostComment(int userID, String ctext, int pid, String cdate) {
+
+         try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+
+            JSONArray post = Post.addPostComment(userID, ctext, pid, cdate, activeConnection);
+
+            db.close();
+
+            String s = post.toString();
+
+            if(!s.equals("[]")){
+                return ok(s);
+            }
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+       
+        return notFound("Failed!");
 
     }
+}
 
