@@ -11,7 +11,13 @@ GET     /                                    controllers.LoginController.login(u
 GET     /images/*file                        controllers.Assets.at(path = "/public/images/", file)
 
 # Register Controller
-POST     /register                            controllers.RegisterController.register(firstname: String, lastname: String, username: String, password: String)
+POST     /register                            controllers.RegisterController.register(firstname: String, lastname: String, email: String, username: String, password: String, creditcard: Integer, cvc: Integer, billing: String)
+
+# Get PIN
+GET     /checkPin                            controllers.RegisterController.checkPin(username: String)
+
+#Confim PIN
+POST    /pinOK                               controllers.RegisterController.pinOK(username: String)  
 
 # Search Bar
 GET     /search                              controllers.SearchBarController.search(find: String)
@@ -63,3 +69,6 @@ POST   /changepassword                      controllers.SettingController.change
 
 #Change Email
 POST    /changeEmail                        controllers.SettingController.changeEmail(userID: Integer, email: String)
+
+#Change Credit Card
+POST    /changeCreditCard                   controllers.SettingController.changeCreditCard(userID: Integer, creditcard: Integer, cvc: Integer)
