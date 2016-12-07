@@ -36,8 +36,11 @@ GET     /getNotifications                    controllers.NotificationsController
 # Newsfeed Controller
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
 
-# Newsfeed Controller
 GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo(user: Integer)
+
+POST     /postIt                             controllers.NewsfeedController.postIt(userID: Integer, ptext: String, pdate: String)
+
+POST    /addPostComment                      controllers.NewsfeedController.addPostComment(userID: Integer, ctext: String, pid: Integer, cdate: String)
 
 # Calendar Controller
 GET     /getCalendar                         controllers.CalendarController.getCalendar(userID: Integer)
