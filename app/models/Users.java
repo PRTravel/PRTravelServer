@@ -29,7 +29,7 @@ public class Users{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT imageurl, ufirst, ulast FROM users WHERE ufirst LIKE ? OR ulast LIKE ? OR uusername LIKE ? OR uemail LIKE ?");
+        stmt = conn.prepareStatement("SELECT uid, imageurl, ufirst, ulast, udescription FROM users WHERE ufirst LIKE ? OR ulast LIKE ? OR uusername LIKE ? OR uemail LIKE ?");
         stmt.setString(1, "%" + find + "%");
         stmt.setString(2, "%" + find + "%");
         stmt.setString(3, "%" + find + "%");
@@ -50,6 +50,49 @@ public class Users{
         JSONArray users = convertToJSONArray(rs, conn);
         
         return users;
+    }
+    
+    public static ResultSet isFollowed(Integer userID, Integer friendID, Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT uid, fid FROM friends WHERE uid = ? AND fid = ?");
+        stmt.setInt(1, userID);
+        stmt.setInt(2, friendID);
+
+        rs = stmt.executeQuery();
+
+        return rs;
+    }
+    
+    public static String followOrUnfollow(Integer userID, Integer friendID, String follow, String ntext, Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+        String rs;
+        
+        if(follow.equals("Unfollow")){
+            stmt = conn.prepareStatement("DELETE FROM friends WHERE uid = ? AND fid = ?");
+            rs = "Follow";
+        } else{
+            stmt = conn.prepareStatement("INSERT INTO friends (uid, fid) VALUES (?, ?)");
+            rs = "Unfollow";
+        }
+        stmt.setInt(1, userID);
+        stmt.setInt(2, friendID);
+
+        stmt.executeUpdate();
+        
+        if(follow.equals("Follow")){
+            stmt = conn.prepareStatement("INSERT INTO notifications (uid, authorid, cid, lid, ntext) VALUES (?, ?, null, null, ?)");
+            stmt.setInt(1, friendID);
+            stmt.setInt(2, userID);
+            stmt.setString(3, ntext);
+         
+            stmt.executeUpdate();
+        }
+
+        return rs;
     }
     
     public static JSONArray convertToJSONArray(ResultSet resultSet, Connection conn) throws Exception {
