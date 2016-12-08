@@ -31,4 +31,18 @@ public class Setting{
 
         
     }
+    
+public static void changeCreditCard(int userID, int creditcard, int cvc, Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+
+        stmt = conn.prepareStatement("UPDATE USERS set ucreditcard = ? , ucvc = ? where uid = ?");
+        stmt.setInt(1, creditcard); 
+        stmt.setInt(2, cvc);
+        stmt.setInt(3, userID);
+
+       stmt.executeUpdate();
+
+        
+    }
 }

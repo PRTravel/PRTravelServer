@@ -45,5 +45,24 @@ public class SettingController extends Controller {
         return notFound("Failed!");
 
     }
+    
+         public Result changeCreditCard(Integer userID, Integer creditcard, Integer cvc) {
+        try {
+            MakeConnection db = new MakeConnection();
+            Connection activeConnection = db.connect();
+            
+            Setting.changeCreditCard(userID, creditcard, cvc, activeConnection);
+            
+            db.close();
+            return ok("Success");
+
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        return notFound("Failed!");
+
+    }
+
 
 }

@@ -5,33 +5,41 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import com.sendgrid.*;
 import java.io.IOException;
+import java.util.Random;
+import java.sql.ResultSet;
 
 public class Register{
 
-    public static void signUp(String fname, String lname, String username, String password, Connection conn) throws SQLException, IOException{
+    public static void signUp(String firstname, String lastname, String email, String username, String password, int creditcard, int cvc, String billing, Connection conn) throws SQLException, IOException{
 
         PreparedStatement stmt;
-
-        stmt = conn.prepareStatement("INSERT INTO USERS (uid, ufirst, ulast, uusername, upassword, adminstatus, ucreditcard, ucvc) "
-               + "VALUES (10, ?, ?, ?, ?, false, 12, 2);");
-        stmt.setString(1, fname); 
-        stmt.setString(2, lname);
+        int pin = (int)(Math.random()*9000)+1000;
+        stmt = conn.prepareStatement("INSERT INTO USERS (ufirst, ulast, uusername, upassword, uemail, ucreditcard, ucvc , ubilling, active, adminstatus) "
+               + "VALUES (?, ?, ?, ?, ?,?,?,?, ?, FALSE);");
+        stmt.setString(1, firstname); 
+        stmt.setString(2, lastname);
         stmt.setString(3, username);
         stmt.setString(4, password);
+        stmt.setString(5, email);
+        stmt.setInt(6, creditcard);
+        stmt.setInt(7, cvc);
+        stmt.setString(8, billing);
+        stmt.setInt(9, pin);
 
-        stmt.executeUpdate();
-        sendemail();
+       stmt.executeUpdate();
+       sendemail(pin, email);
     }
 
 
-public static void sendemail() throws IOException {
-    Email from = new Email("abdiel.vega2@upr.edu");
+public static void sendemail(int pin, String email) throws IOException {
+    String text = "Hello here is your pin: " + pin;
+    Email from = new Email("prtravelapp@gmail.com");
     String subject = "Hello World from the SendGrid Java Library!";
-    Email to = new Email("abdiel017@gmail.com");
-    Content content = new Content("text/plain", "Hello, Email!");
+    Email to = new Email(email);
+    Content content = new Content("text/plain", text);
     Mail mail = new Mail(from, subject, to, content);
 
-    SendGrid sg = new SendGrid("9PgPSqAJSwOmhM94iuUX4A");
+    SendGrid sg = new SendGrid("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");
     Request request = new Request();
     try {
       request.method = Method.POST;
@@ -46,5 +54,31 @@ public static void sendemail() throws IOException {
       throw ex;
     }
   }
+  
+  
+  public static ResultSet checkPin(String username, Connection conn) throws SQLException{
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT active FROM users WHERE uusername = ?");
+        stmt.setString(1, username);
+
+        rs = stmt.executeQuery();
+
+        return rs;
+
+    }
+    
+        public static void pinOK(String username, Connection conn) throws SQLException, IOException{
+
+        PreparedStatement stmt;
+        stmt = conn.prepareStatement("UPDATE USERS set active = -1 where uusername= ?");
+        stmt.setString(1, username); 
+
+       stmt.executeUpdate();
+    }
+    
+  
+  
   
 }
