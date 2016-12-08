@@ -36,6 +36,8 @@ GET     /getAlbums                           controllers.AlbumController.getAlbu
 # Picture Controller
 GET     /getPictures                         controllers.PictureController.getPictures(albumID: Integer)
 
+POST    /addPictureComment                   controllers.PictureController.addPictureComment(userID: Integer, ctext: String, picid: Integer, cdate: String)
+
 # Notifications Controller
 GET     /getNotifications                    controllers.NotificationsController.getNotifications(userID: Integer)
 
@@ -53,6 +55,10 @@ GET     /getCalendar                         controllers.CalendarController.getC
 
 GET     /getProfileCalendar                  controllers.CalendarController.getProfileCalendar(userID: Integer)
 
+POST    /addProfileCalendar 				 controllers.CalendarController.addProfileCalendar(userID: Integer, title: String, start: String, end1: String, aid: Integer)
+
+POST    /deleteProfileCalendar 				 controllers.CalendarController.deleteProfileCalendar(title: String)
+
 # Attractions Controller
 GET     /getAttractions                      controllers.AttractionController.getAttractions
 
@@ -65,7 +71,14 @@ POST    /addToWishList                       controllers.AttractionController.ad
 POST    /removeFromWishlist                  controllers.AttractionController.removeFromWishlist(userID: Integer, aid: Integer)
 
 # Admin Controller
-GET     /getAdmin                           controllers.AdminController.getAdmin
+
+GET     /getAdmin                            controllers.AdminController.getAdmin
+
+POST    /removeFromPictures                  controllers.AdminController.removeFromPictures(picid: Integer)
+
+POST    /removeFromAlbums                    controllers.AdminController.removeFromAlbums(albumid: Integer)
+
+POST    /removeFromUsers                     controllers.AdminController.removeFromUsers(userID: Integer)
 
 # Change Password
 POST   /changepassword                      controllers.SettingController.changePassword(userID: Integer, password: String)
@@ -75,3 +88,4 @@ POST    /changeEmail                        controllers.SettingController.change
 
 #Change Credit Card
 POST    /changeCreditCard                   controllers.SettingController.changeCreditCard(userID: Integer, creditcard: Integer, cvc: Integer)
+

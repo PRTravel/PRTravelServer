@@ -51,6 +51,11 @@ public class Post{
         stmt.setInt(4, pid);
         
         stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("UPDATE posts SET pcomments_count = pcomments_count + 1 WHERE pid = ?");
+        stmt.setInt(1, pid);
+        
+        stmt.executeUpdate();
 
         return getPost(userID, conn);
     }

@@ -26,6 +26,50 @@ public class Picture{
         return pictures;
     }
     
+    public static JSONObject getSinglePicture(int picid, Connection conn) throws Exception{
+
+        PreparedStatement stmt;
+        ResultSet rs;
+
+        stmt = conn.prepareStatement("SELECT picid, piclikes, piccomments, pimageurl FROM picture WHERE picid = ?");
+        stmt.setInt(1, picid); 
+
+        rs = stmt.executeQuery();
+        
+        JSONObject picture = ToJSON.convertToJSONObj(rs);
+        
+        stmt = conn.prepareStatement("SELECT imageurl, ufirst, ulast, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE picid = ? ORDER BY cid desc");
+        stmt.setInt(1, picid);
+                    
+        rs = stmt.executeQuery();
+                    
+        JSONArray pictureComments = ToJSON.convertToJSONArray(rs);
+                    
+        picture.put("comments", pictureComments);
+
+        return picture;
+    }
+    
+    public static JSONObject addPictureComment(int userID, String ctext, int picid, String cdate, Connection conn) throws Exception{
+
+        PreparedStatement stmt;
+
+        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, ctime, pid, aid, picid) VALUES (?, ?, ?, null, null, null, ?)");
+        stmt.setInt(1, userID);
+        stmt.setString(2, ctext);
+        stmt.setString(3, cdate);
+        stmt.setInt(4, picid);
+        
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("UPDATE picture SET piccomments = piccomments + 1 WHERE picid = ?");
+        stmt.setInt(1, picid);
+        
+        stmt.executeUpdate();
+
+        return getSinglePicture(picid, conn);
+    }
+    
     public static JSONArray convertToJSONArray(ResultSet resultSet, Connection conn) throws Exception {
         
         PreparedStatement stmt2;
@@ -48,8 +92,8 @@ public class Picture{
                 }
                 
                 if(columnName.equals("picid")){
-                    stmt2 = conn.prepareStatement("SELECT imageurl, ufirst, ulast, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE picid = ? ORDER BY to_date(cdate,'YYYY MM DD') desc");
-                    stmt2.setInt(1, (int) columnValue);
+                    stmt2 = conn.prepareStatement("SELECT imageurl, ufirst, ulast, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE picid = ? ORDER BY cid desc");
+                    stmt2.setLong(1, (Long) columnValue);
                     
                     rs2 = stmt2.executeQuery();
                     
@@ -65,4 +109,5 @@ public class Picture{
         }
         return jsonArray;
     }
+    
 }
