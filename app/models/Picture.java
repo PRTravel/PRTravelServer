@@ -93,7 +93,7 @@ public class Picture{
                 
                 if(columnName.equals("picid")){
                     stmt2 = conn.prepareStatement("SELECT imageurl, ufirst, ulast, ctext, cdate FROM users NATURAL INNER JOIN comments WHERE picid = ? ORDER BY cid desc");
-                    stmt2.setInt(1, (int) columnValue);
+                    stmt2.setLong(1, (Long) columnValue);
                     
                     rs2 = stmt2.executeQuery();
                     
