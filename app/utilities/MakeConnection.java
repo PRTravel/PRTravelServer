@@ -12,7 +12,7 @@ public class MakeConnection{
         url = "jdbc:postgresql://localhost:5432/postgres";
 
 
-        conn = DriverManager.getConnection(url,"postgres","Icom5016");
+        conn = DriverManager.getConnection(url,"abdielvega","abdiel123");
 
     }
 
