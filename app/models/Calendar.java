@@ -33,15 +33,30 @@ public class Calendar{
         return rs;
     }
 
-    public static void addProfileCalendar(Integer userID, String title, String start, String end1, Connection conn) throws SQLException{
+    public static void addProfileCalendar(Integer userID, String title, String start, String end1,Integer aid, Connection conn) throws SQLException{
 
         PreparedStatement stmt;
 
-        stmt = conn.prepareStatement("INSERT INTO events (uid, title, start, end1, allday, aid)" + "VALUES (?,?,?,?, false, 1)");
+        stmt = conn.prepareStatement("INSERT INTO events (uid, title, start, end1, allday, aid)" + "VALUES (?,?,?,?, false, ?)");
         stmt.setInt(1, userID);
         stmt.setString(2, title);
         stmt.setString(3, start);
         stmt.setString(4, end1);
+        stmt.setInt(5, aid);
+        
+
+
+
+        stmt.executeUpdate();
+
+    }
+    public static void deleteProfileCalendar(String title, Connection conn) throws SQLException{
+
+        PreparedStatement stmt;
+
+        stmt = conn.prepareStatement("delete from events where title = ?");
+        stmt.setString(1, title);
+       
         
 
 
