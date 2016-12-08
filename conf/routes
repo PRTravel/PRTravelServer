@@ -55,6 +55,10 @@ GET     /getCalendar                         controllers.CalendarController.getC
 
 GET     /getProfileCalendar                  controllers.CalendarController.getProfileCalendar(userID: Integer)
 
+POST    /addProfileCalendar 				 controllers.CalendarController.addProfileCalendar(userID: Integer, title: String, start: String, end1: String, aid: Integer)
+
+POST    /deleteProfileCalendar 				 controllers.CalendarController.deleteProfileCalendar(title: String)
+
 # Attractions Controller
 GET     /getAttractions                      controllers.AttractionController.getAttractions
 
