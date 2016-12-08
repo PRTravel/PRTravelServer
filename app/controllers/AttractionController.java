@@ -89,10 +89,8 @@ public class AttractionController extends Controller {
             return ok();
 
         } catch (Exception e) {
-            System.err.println("Got an exception! ");
-            System.err.println(e.getMessage());
+            return notFound("Already has the attraction.");
         }
-        return notFound("Failed!");
     }
     
     public Result removeFromWishlist(Integer userID, Integer aid){

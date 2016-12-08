@@ -30,14 +30,19 @@ GET     /getAlbums                           controllers.AlbumController.getAlbu
 # Picture Controller
 GET     /getPictures                         controllers.PictureController.getPictures(albumID: Integer)
 
+POST    /addPictureComment                   controllers.PictureController.addPictureComment(userID: Integer, ctext: String, picid: Integer, cdate: String)
+
 # Notifications Controller
 GET     /getNotifications                    controllers.NotificationsController.getNotifications(userID: Integer)
 
 # Newsfeed Controller
 GET     /getProfileInfo                      controllers.NewsfeedController.getProfileInfo
 
-# Newsfeed Controller
 GET     /getNewsfeedInfo                     controllers.NewsfeedController.getNewsfeedInfo(user: Integer)
+
+POST     /postIt                             controllers.NewsfeedController.postIt(userID: Integer, ptext: String, pdate: String)
+
+POST    /addPostComment                      controllers.NewsfeedController.addPostComment(userID: Integer, ctext: String, pid: Integer, cdate: String)
 
 # Calendar Controller
 GET     /getCalendar                         controllers.CalendarController.getCalendar(userID: Integer)
@@ -56,10 +61,18 @@ POST    /addToWishList                       controllers.AttractionController.ad
 POST    /removeFromWishlist                  controllers.AttractionController.removeFromWishlist(userID: Integer, aid: Integer)
 
 # Admin Controller
-GET     /getAdmin                           controllers.AdminController.getAdmin
+
+GET     /getAdmin                            controllers.AdminController.getAdmin
+
+POST    /removeFromPictures                  controllers.AdminController.removeFromPictures(picid: Integer)
+
+POST    /removeFromAlbums                    controllers.AdminController.removeFromAlbums(albumid: Integer)
+
+POST    /removeFromUsers                     controllers.AdminController.removeFromUsers(userID: Integer)
 
 # Change Password
 POST   /changepassword                      controllers.SettingController.changePassword(userID: Integer, password: String)
 
 #Change Email
 POST    /changeEmail                        controllers.SettingController.changeEmail(userID: Integer, email: String)
+

@@ -95,6 +95,99 @@ public class Users{
         return rs;
     }
     
+    public static JSONArray removeFromPictures(Integer picid, Connection conn) throws Exception{
+
+        PreparedStatement stmt;
+        
+        stmt = conn.prepareStatement("DELETE FROM comments WHERE picid = ?");
+        stmt.setInt(1, picid);
+
+        stmt.executeUpdate();
+
+        stmt = conn.prepareStatement("DELETE FROM picture WHERE picid = ?");
+        stmt.setInt(1, picid);
+
+        stmt.executeUpdate();
+        
+        return getAdminInfo(conn);
+    }
+    
+    public static JSONArray removeFromAlbums(Integer albumid, Connection conn) throws Exception{
+
+        PreparedStatement stmt;
+        
+        stmt = conn.prepareStatement("DELETE FROM comments WHERE picid in (SELECT C.picid  FROM comments as C, picture as P WHERE C.picid = P.picid AND albumid = ?)");
+        stmt.setInt(1, albumid);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM picture WHERE albumid = ?");
+        stmt.setInt(1, albumid);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM albums WHERE albumid = ?");
+        stmt.setInt(1, albumid);
+
+        stmt.executeUpdate();
+        
+        return getAdminInfo(conn);
+    }
+    
+    public static JSONArray removeFromUsers(Integer userID, Connection conn) throws Exception{
+
+        PreparedStatement stmt;
+        
+        stmt = conn.prepareStatement("DELETE FROM comments WHERE uid = ? OR pid in (SELECT C.pid FROM comments as C, posts as P WHERE C.pid = P.pid AND C.uid != ?)");
+        stmt.setInt(1, userID);
+        stmt.setInt(2, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM picture WHERE albumid in (SELECT P.albumid FROM picture as P, albums as A WHERE P.albumid = A.albumid AND uid = ?)");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM albums WHERE uid = ?");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM events WHERE uid = ?");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM posts WHERE uid = ?");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM friends WHERE uid = ? OR fid = ?");
+        stmt.setInt(1, userID);
+        stmt.setInt(2, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM notifications WHERE authorid = ?");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM wishlist WHERE uid = ?");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        stmt = conn.prepareStatement("DELETE FROM users WHERE uid = ?");
+        stmt.setInt(1, userID);
+
+        stmt.executeUpdate();
+        
+        return getAdminInfo(conn);
+    }
+    
     public static JSONArray convertToJSONArray(ResultSet resultSet, Connection conn) throws Exception {
         
         PreparedStatement stmt2;
@@ -157,7 +250,7 @@ public class Users{
                 }
                 
                 if(columnName.equals("albumid")){
-                    stmt3 = conn.prepareStatement("SELECT albumid, picname, pimageurl FROM picture WHERE albumid = ?");
+                    stmt3 = conn.prepareStatement("SELECT picid, albumid, picname, pimageurl FROM picture WHERE albumid = ?");
                     stmt3.setInt(1, (int) columnValue);
                     
                     rs3 = stmt3.executeQuery();
