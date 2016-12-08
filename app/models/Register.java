@@ -72,7 +72,7 @@ public static void sendemail(int pin, String email) throws IOException {
         public static void pinOK(String username, Connection conn) throws SQLException, IOException{
 
         PreparedStatement stmt;
-        stmt = conn.prepareStatement("UPDATE USERS set active = NULL where uusername= ?");
+        stmt = conn.prepareStatement("UPDATE USERS set active = -1 where uusername= ?");
         stmt.setString(1, username); 
 
        stmt.executeUpdate();
