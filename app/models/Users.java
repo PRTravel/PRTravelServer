@@ -211,7 +211,7 @@ public class Users{
                 
                 if(columnName.equals("uid")){
                     stmt2 = conn.prepareStatement("SELECT alocation, albumname, albumid, aimageurl FROM albums natural inner join attractions WHERE uid = ?");
-                    stmt2.setInt(1, (int) columnValue);
+                    stmt2.setLong(1, (Long) columnValue);
                     
                     rs2 = stmt2.executeQuery();
                     JSONArray albums = getPicturesJSONArray(rs2, conn);
