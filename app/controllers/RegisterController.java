@@ -10,7 +10,7 @@ import utilities.ToJSON;
 
 public class RegisterController extends Controller {
 
-    public Result register(String firstname, String lastname, String email, String username, String password, Integer creditcard, Integer cvc, String billing)
+    public Result register(String firstname, String lastname, String email, String username, String password,  Integer creditcard, Integer cvc, String billing)
     {
 
           try {

@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 
 public class Register{
 
-    public static void signUp(String firstname, String lastname, String email, String username, String password, int creditcard, int cvc, String billing, Connection conn) throws SQLException, IOException{
+    public static void signUp(String firstname, String lastname, String email, String username,  String password, int creditcard, int cvc, String billing, Connection conn) throws SQLException, IOException{
 
         PreparedStatement stmt;
         int pin = (int)(Math.random()*9000)+1000;
