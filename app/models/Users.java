@@ -84,7 +84,7 @@ public class Users{
         stmt.executeUpdate();
         
         if(follow.equals("Follow")){
-            stmt = conn.prepareStatement("INSERT INTO notifications (uid, authorid, cid, lid, ntext) VALUES (?, ?, null, null, ?)");
+            stmt = conn.prepareStatement("INSERT INTO notifications (uid, authorid, cid, ntext) VALUES (?, ?, null, ?)");
             stmt.setInt(1, friendID);
             stmt.setInt(2, userID);
             stmt.setString(3, ntext);
@@ -251,7 +251,7 @@ public class Users{
                 
                 if(columnName.equals("albumid")){
                     stmt3 = conn.prepareStatement("SELECT picid, albumid, picname, pimageurl FROM picture WHERE albumid = ?");
-                    stmt3.setInt(1, (int) columnValue);
+                    stmt3.setLong(1, (Long) columnValue);
                     
                     rs3 = stmt3.executeQuery();
                     JSONArray pictures = ToJSON.convertToJSONArray(rs3);

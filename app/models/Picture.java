@@ -16,7 +16,7 @@ public class Picture{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT picid, picname, piclikes, piccomments, pimageurl, p.albumid FROM picture as p, albums as a WHERE a.albumid = ? and p.albumid = a.albumid");
+        stmt = conn.prepareStatement("SELECT picid, picname, piccomments, pimageurl, p.albumid FROM picture as p, albums as a WHERE a.albumid = ? and p.albumid = a.albumid");
         stmt.setInt(1, albumID); 
 
         rs = stmt.executeQuery();
@@ -31,7 +31,7 @@ public class Picture{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT picid, piclikes, piccomments, pimageurl FROM picture WHERE picid = ?");
+        stmt = conn.prepareStatement("SELECT picid, piccomments, pimageurl FROM picture WHERE picid = ?");
         stmt.setInt(1, picid); 
 
         rs = stmt.executeQuery();
@@ -54,7 +54,7 @@ public class Picture{
 
         PreparedStatement stmt;
 
-        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, ctime, pid, aid, picid) VALUES (?, ?, ?, null, null, null, ?)");
+        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, pid, aid, picid) VALUES (?, ?, ?, null, null, ?)");
         stmt.setInt(1, userID);
         stmt.setString(2, ctext);
         stmt.setString(3, cdate);
