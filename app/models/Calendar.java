@@ -12,7 +12,7 @@ public class Calendar{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT FE.uid, FE.fid, E.uid, E.title, E.start, E.end1 FROM (events natural inner join friends) as FE, events as E WHERE  FE.uid = ? AND FE.fid = E.uid");
+        stmt = conn.prepareStatement("SELECT distinct FE.uid, FE.fid, E.uid, E.title, E.start, E.end1 FROM (events natural inner join friends) as FE, events as E WHERE  FE.uid = ? AND FE.fid = E.uid");
         stmt.setInt(1, userID);
 
 
