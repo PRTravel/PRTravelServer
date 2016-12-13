@@ -72,7 +72,7 @@ public class Attraction{
         
         PreparedStatement stmt;
 
-        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, ctime, pid, aid, picid) VALUES (?, ?, ?, null, null, ?, null)");
+        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, pid, aid, picid) VALUES (?, ?, ?, null, ?, null)");
         stmt.setInt(1, userID);
         stmt.setString(2, ctext);
         stmt.setString(3, cdate);

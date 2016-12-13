@@ -16,7 +16,7 @@ public class Post{
         PreparedStatement stmt;
         ResultSet rs;
 
-        stmt = conn.prepareStatement("SELECT P.pid, U.ufirst, U.ulast, U.imageurl, P.ptext, P.pdate, P.plikes, P.pcomments_count FROM posts as P, friends as F, users as U WHERE P.pauthor = F.fid AND P.pauthor = U.uid AND F.uid = ? ORDER BY pid desc");
+        stmt = conn.prepareStatement("SELECT P.pid, U.ufirst, U.ulast, U.imageurl, P.ptext, P.pdate, P.pcomments_count FROM posts as P, friends as F, users as U WHERE P.pauthor = F.fid AND P.pauthor = U.uid AND F.uid = ? ORDER BY pid desc");
         stmt.setInt(1, user);
         
         rs = stmt.executeQuery();
@@ -29,7 +29,7 @@ public class Post{
 
         PreparedStatement stmt;
 
-        stmt = conn.prepareStatement("INSERT INTO posts (uid, ptext, pdate, plikes, pcomments_count, pauthor) VALUES (?, ?, ?, 0, 0, ?)");
+        stmt = conn.prepareStatement("INSERT INTO posts (uid, ptext, pdate, pcomments_count, pauthor) VALUES (?, ?, ?, 0, ?)");
         stmt.setInt(1, userID);
         stmt.setString(2, ptext); 
         stmt.setString(3, pdate); 
@@ -44,7 +44,7 @@ public class Post{
 
         PreparedStatement stmt;
 
-        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, ctime, pid, aid, picid) VALUES (?, ?, ?, null, ?, null, null)");
+        stmt = conn.prepareStatement("INSERT INTO comments (uid, ctext, cdate, pid, aid, picid) VALUES (?, ?, ?, ?, null, null)");
         stmt.setInt(1, userID);
         stmt.setString(2, ctext);
         stmt.setString(3, cdate);

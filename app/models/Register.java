@@ -32,7 +32,7 @@ public class Register{
 
 
 public static void sendemail(int pin, String email) throws IOException {
-    String text = "Hello here is your pin: " + pin;
+    String text = "Thank you for joining the PRTravel community.\n To verify your account please enter this PIN at login: " + pin;
     Email from = new Email("prtravelapp@gmail.com");
     String subject = "Hello World from the SendGrid Java Library!";
     Email to = new Email(email);

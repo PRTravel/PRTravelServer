@@ -21,6 +21,8 @@ public class NotificationsController extends Controller {
             db.close();
 
             String s = ToJSON.convertToJSONArray(notificationText).toString();
+            
+            System.out.println(s);
 
             if(!s.equals("[]")) {
                 return ok(s);
