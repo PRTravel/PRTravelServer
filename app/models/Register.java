@@ -13,10 +13,12 @@ public class Register{
     public static void signUp(String firstname, String lastname, String email, String username,  String password, int creditcard, int cvc, String billing, Connection conn) throws SQLException, IOException{
 
         PreparedStatement stmt;
+        int id = -1;
+        ResultSet rs;
         int pin = (int)(Math.random()*9000)+1000;
         stmt = conn.prepareStatement("INSERT INTO USERS (ufirst, ulast, uusername, upassword, uemail, ucreditcard, ucvc , ubilling, active, adminstatus) "
                + "VALUES (?, ?, ?, ?, ?,?,?,?, ?, FALSE);");
-        stmt.setString(1, firstname); 
+        stmt.setString(1, firstname);
         stmt.setString(2, lastname);
         stmt.setString(3, username);
         stmt.setString(4, password);
@@ -27,6 +29,18 @@ public class Register{
         stmt.setInt(9, pin);
 
        stmt.executeUpdate();
+       stmt = conn.prepareStatement("SELECT uid FROM users WHERE uusername = ?");
+       stmt.setString(1, username);
+       rs = stmt.executeQuery();
+       while(rs.next())
+        id = rs.getInt("uid");
+
+        stmt = conn.prepareStatement("INSERT INTO FRIENDS (uid, fid) "
+              + "VALUES (?, ?);");
+        stmt.setInt(1, id);
+        stmt.setInt(2, id);
+
+        stmt.executeUpdate();
        sendemail(pin, email);
     }
 
@@ -54,8 +68,8 @@ public static void sendemail(int pin, String email) throws IOException {
       throw ex;
     }
   }
-  
-  
+
+
   public static ResultSet checkPin(String username, Connection conn) throws SQLException{
         PreparedStatement stmt;
         ResultSet rs;
@@ -68,17 +82,17 @@ public static void sendemail(int pin, String email) throws IOException {
         return rs;
 
     }
-    
+
         public static void pinOK(String username, Connection conn) throws SQLException, IOException{
 
         PreparedStatement stmt;
         stmt = conn.prepareStatement("UPDATE USERS set active = -1 where uusername= ?");
-        stmt.setString(1, username); 
+        stmt.setString(1, username);
 
        stmt.executeUpdate();
     }
-    
-  
-  
-  
+
+
+
+
 }
